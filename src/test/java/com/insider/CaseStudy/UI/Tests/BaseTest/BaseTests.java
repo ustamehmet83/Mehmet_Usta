@@ -27,7 +27,7 @@ public class BaseTests {
 
     @AfterAll
     public static void tearDown() {
-        driver.close();
+        Driver.closeDriver();
         BrowserUtils.getThreadAssert();
     }
 }

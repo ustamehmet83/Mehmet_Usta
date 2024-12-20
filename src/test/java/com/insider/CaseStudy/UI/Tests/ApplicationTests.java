@@ -57,7 +57,7 @@ class ApplicationTests extends BaseTests {
     @CsvSource({
             "'Istanbul, Turkey', 'Quality Assurance'"
     })
-    public void qualityAssuranceTest(String location, String department) throws InterruptedException {
+    public void qualityAssuranceTest(String location, String department) {
         // Step 1: Go to Quality Assurance careers page
         driver.get(ConfigurationReader.getProperty("appQualityAssuranceUrl"));
         homePage.waitForVisibilityClickableAndclickWithJS(homePage.acceptCookiesBtn);
@@ -67,13 +67,17 @@ class ApplicationTests extends BaseTests {
 
         // Step 3: Filter jobs by Location: “Istanbul, Turkey” and Department: “Quality Assurance”
         openPositionsPage.waitForTextContainsVisibility(openPositionsPage.filterByDepartment, department);
-        /*
+
+        /* Alternative Solution-> But sometimes it doesn't work because developer write pre condition function
+         like onclick because of this if user does not click filter area, filter function does not work, and test fails.
+
         Select selectLocation = new Select(openPositionsPage.locationDropdown);
         selectLocation.selectByVisibleText(location);
 
         Select selectDepartment = new Select(openPositionsPage.departmentDropdown);
         selectDepartment.selectByVisibleText(department);
          */
+
         openPositionsPage.filterByLocation.click();
         openPositionsPage.waitForVisibility(openPositionsPage.filterByLocations);
         for (WebElement filterByLocation : openPositionsPage.filterByLocations) {
