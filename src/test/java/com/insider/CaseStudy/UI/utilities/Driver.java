@@ -73,7 +73,6 @@ public class Driver {
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
                     break;
                 case "headless-chrome":
-                    // WebDriverManager.chromedriver().setup();
                     chromeOptions.addArguments("--no-sandbox"); // Bypass OS security model
                     chromeOptions.addArguments("--disable-extensions"); // disabling extensions
                     chromeOptions.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
@@ -86,7 +85,6 @@ public class Driver {
                     break;
 
                 case "firefox":
-                    //WebDriverManager.firefoxdriver().setup();
                     firefoxOptions.setAcceptInsecureCerts(true);
                     firefoxOptions.addPreference("network.http.phishy-userpass-length", 255);
                     firefoxOptions.addPreference("network.automatic-ntlm-auth.allow-non-fqdn", true);
@@ -110,7 +108,6 @@ public class Driver {
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
                     break;
                 case "remote-chrome":
-                    // WebDriverManager.chromedriver().setup();
                     try {
                         String gridAddress = "jenkins_selenium-chrome-server_1";
                         URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
