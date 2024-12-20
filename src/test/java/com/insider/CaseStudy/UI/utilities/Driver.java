@@ -56,7 +56,6 @@ public class Driver {
             switch (browserType) {
                 case "chrome":
                     Map<String, Object> prefs = new HashMap<>();
-                   //prefs.put("download.default_directory", System.getProperty("user.dir") + File.separator + ConfigurationReader.getProperty("downloadLocation"));
                     chromeOptions.setExperimentalOption("prefs", prefs);
                     //chromeOptions.addArguments("--remote-allow-origins=*");
                     //chromeOptions.addArguments("incognito");
@@ -88,11 +87,28 @@ public class Driver {
 
                 case "firefox":
                     //WebDriverManager.firefoxdriver().setup();
-                    firefoxOptions.addArguments("--remote-allow-origins=*");
-                    firefoxOptions.addArguments("incognito");
+                    firefoxOptions.setAcceptInsecureCerts(true);
+                    firefoxOptions.addPreference("network.http.phishy-userpass-length", 255);
+                    firefoxOptions.addPreference("network.automatic-ntlm-auth.allow-non-fqdn", true);
+                    firefoxOptions.addPreference("network.negotiate-auth.allow-non-fqdn", true);
+                    firefoxOptions.addPreference("browser.tabs.remote.autostart", false);
+                    firefoxOptions.addPreference("browser.tabs.remote.autostart.1", false);
+                    firefoxOptions.addPreference("browser.tabs.remote.autostart.2", false);
+                    firefoxOptions.addPreference("browser.tabs.remote.force-enable", false);
+                    firefoxOptions.addPreference("browser.download.folderList", 2);
+                    firefoxOptions.addPreference("browser.helperApps.alwaysAsk.force", false);
+                    firefoxOptions.addPreference("browser.download.manager.showWhenStarting", false);
+                    firefoxOptions.addPreference("browser.download.useDownloadDir", true);
+                    firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    firefoxOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
+                    firefoxOptions.addPreference("browser.download.manager.focusWhenStarting", false);
+                    firefoxOptions.addPreference("browser.download.manager.useWindow", false);
+                    firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
+                    firefoxOptions.addPreference("browser.download.manager.closeWhenDone", true);
                     driverPool.set(new FirefoxDriver(firefoxOptions));
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+                    break;
                 case "remote-chrome":
                     // WebDriverManager.chromedriver().setup();
                     try {
