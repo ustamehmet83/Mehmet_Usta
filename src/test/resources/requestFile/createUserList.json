@@ -1,0 +1,21 @@
+[{
+  "id": 1040,
+  "username": "dan_atakan",
+  "firstName": "Daniel",
+  "lastName": "Atakan",
+  "email": "dan.danakan@gmail.com",
+  "password": "Password1040",
+  "phone": "07534546576",
+  "userStatus": 100
+} ,
+  {
+    "id": 1271,
+    "username": "sam_garcia",
+    "firstName": "Sam",
+    "lastName": "Garcia",
+    "email": "sam.garcia@gmail.com",
+    "password": "Password1271",
+    "phone": "07534546576",
+    "userStatus": 100
+  }
+]
