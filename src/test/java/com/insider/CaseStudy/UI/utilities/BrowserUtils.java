@@ -1,7 +1,6 @@
 package com.insider.CaseStudy.UI.utilities;
 
-import com.insider.CaseStudy.UI.Tests.BaseTest.BaseTests;
-import org.assertj.core.api.BooleanAssert;
+import com.insider.CaseStudy.UI.tests.BaseTest.BaseTests;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -293,7 +292,7 @@ public class BrowserUtils {
         try {
             File screenshotFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String filePath = System.getProperty("user.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
+            String filePath = System.getProperty("tests.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
             FileUtils.copyFile(screenshotFile, new File(filePath));
         } catch (Exception e) {
             e.printStackTrace();
@@ -369,7 +368,7 @@ public class BrowserUtils {
 
     public static void clearScreenshotsFolder() {
 
-        String screenshotsFolderPath = System.getProperty("user.dir") + File.separator + "ScreenShots";
+        String screenshotsFolderPath = System.getProperty("tests.dir") + File.separator + "ScreenShots";
 
         File folder = new File(screenshotsFolderPath);
 

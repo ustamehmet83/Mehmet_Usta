@@ -1,4 +1,4 @@
-package com.insider.CaseStudy.API.user;
+package com.insider.CaseStudy.API.tests;
 
 import com.insider.CaseStudy.API.endpoints.EndPoints;
 import io.restassured.http.ContentType;
@@ -22,7 +22,7 @@ public class UserFlow extends Hooks {
     int id;
 
     /**************************************************************
-     * The test expecting to create successfully a user on the page
+     * The test expecting to create successfully a tests on the page
      *************************************************************/
     @Test
     public void test1() {
@@ -50,7 +50,7 @@ public class UserFlow extends Hooks {
     }
 
     /******************************
-     * Get created user credentials
+     * Get created tests credentials
      * GET METHOD
      *****************************/
 
@@ -76,7 +76,7 @@ public class UserFlow extends Hooks {
     }
 
     /**************************************
-     * Update the created user
+     * Update the created tests
      * PUT METHOD
      ********************************/
     @Test
@@ -100,7 +100,7 @@ public class UserFlow extends Hooks {
     }
 
     /******************************
-     * Get updated user
+     * Get updated tests
      * GET METHOD
      *****************************/
     @Test
@@ -124,7 +124,7 @@ public class UserFlow extends Hooks {
     }
 
     /***********************************
-     * Delete the updated user
+     * Delete the updated tests
      * DELETE METHOD
      **********************************/
     @Test
@@ -147,7 +147,7 @@ public class UserFlow extends Hooks {
     }
 
     /*****************************************
-     * Delete the first created user
+     * Delete the first created tests
      * DELETE METHOD
      ****************************************/
     @Test

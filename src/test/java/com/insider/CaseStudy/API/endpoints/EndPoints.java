@@ -10,9 +10,9 @@ public class EndPoints {
     public static String storeOrder = "/store/order";
     public static String storeInventory = "/store/inventory";
     public static String storeOrderId= "/store/order/{orderId}";
-    public static String user= "/user";
-    public static String username= "/user/{username}";
-    public static String createWithList= "/user/createWithList";
+    public static String user= "/tests";
+    public static String username= "/tests/{username}";
+    public static String createWithList= "/tests/createWithList";
     public static String findByStatus= "/pet/findByStatus";
 
 

@@ -1,19 +1,16 @@
-package com.insider.CaseStudy.API.user;
+package com.insider.CaseStudy.API.tests;
 
 
 import com.github.javafaker.Faker;
 import com.insider.CaseStudy.API.endpoints.EndPoints;
 import com.insider.CaseStudy.API.pages.Category;
-import com.insider.CaseStudy.API.pages.Store;
 import com.insider.CaseStudy.API.pages.Tag;
 import com.insider.CaseStudy.API.pages.Pet;
-import com.insider.CaseStudy.API.utilities.ExtentReportManager;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.File;
 import java.util.Arrays;
@@ -243,7 +240,7 @@ public class PetFlow extends Hooks {
                 when().
                 get(EndPoints.findByStatus).
                 then().assertThat().
-                statusCode(200).
+                statusCode(20000).
                 log().all().extract().jsonPath();
         List<String> status = jsonPath.get("status");
         for (String s : status) {

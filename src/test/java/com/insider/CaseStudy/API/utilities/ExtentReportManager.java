@@ -25,7 +25,7 @@ public class ExtentReportManager implements BeforeAllCallback,AfterEachCallback,
 		// Get the timestamp for the report
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Test-Report-" + timeStamp + ".html";
-		String reportPath = System.getProperty("user.dir") + "\\reports\\" + repName; // Absolute path
+		String reportPath = System.getProperty("tests.dir") + "\\reports\\" + repName; // Absolute path
 
 		extentReports = new ExtentReports();
 		extentHtmlReporter = new ExtentHtmlReporter (reportPath);
@@ -39,8 +39,8 @@ public class ExtentReportManager implements BeforeAllCallback,AfterEachCallback,
 
 	@Override
 	public void afterEach(ExtensionContext context) {
+		extentTest=extentReports.createTest(context.getDisplayName());
         if (extentTest.getStatus()!=Status.FAIL){
-			extentTest=extentReports.createTest(context.getDisplayName());
             extentTest.createNode(context.getDisplayName());
             extentTest.log(Status.PASS, "Test Passed");
         }

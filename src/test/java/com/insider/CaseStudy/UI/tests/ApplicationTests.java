@@ -1,7 +1,7 @@
-package com.insider.CaseStudy.UI.Tests;
+package com.insider.CaseStudy.UI.tests;
 
 import com.insider.CaseStudy.SpringStartApplication;
-import com.insider.CaseStudy.UI.Tests.BaseTest.BaseTests;
+import com.insider.CaseStudy.UI.tests.BaseTest.BaseTests;
 import com.insider.CaseStudy.UI.pages.CareersPage;
 import com.insider.CaseStudy.UI.pages.HomePage;
 import com.insider.CaseStudy.UI.pages.OpenPositionsPage;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -69,7 +68,7 @@ class ApplicationTests extends BaseTests {
         openPositionsPage.waitForTextContainsVisibility(openPositionsPage.filterByDepartment, department);
 
         /* Alternative Solution-> But sometimes it doesn't work because developer write pre condition function
-         like onclick because of this if user does not click filter area, filter function does not work, and test fails.
+         like onclick because of this if tests does not click filter area, filter function does not work, and test fails.
 
         Select selectLocation = new Select(openPositionsPage.locationDropdown);
         selectLocation.selectByVisibleText(location);

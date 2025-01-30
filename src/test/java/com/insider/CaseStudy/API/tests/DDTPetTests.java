@@ -1,4 +1,4 @@
-package com.insider.CaseStudy.API.user;
+package com.insider.CaseStudy.API.tests;
 
 import com.insider.CaseStudy.API.pages.Category;
 import com.insider.CaseStudy.API.pages.Pet;

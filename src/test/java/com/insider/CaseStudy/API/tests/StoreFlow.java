@@ -1,12 +1,9 @@
-package com.insider.CaseStudy.API.user;
+package com.insider.CaseStudy.API.tests;
 
 import com.github.javafaker.Faker;
 import com.insider.CaseStudy.API.endpoints.EndPoints;
 import com.insider.CaseStudy.API.pages.Store;
 import io.restassured.http.ContentType;
-import org.apache.logging.log4j.LogManager;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 
 import java.util.Map;
@@ -17,7 +14,7 @@ import static org.hamcrest.Matchers.is;
 public class StoreFlow extends Hooks {
 
     /**************************************************************
-     * The test expecting to create successfully a user on the page
+     * The test expecting to create successfully a tests on the page
      *************************************************************/
 
     /*****************************************
