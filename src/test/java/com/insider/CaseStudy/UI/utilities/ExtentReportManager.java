@@ -1,17 +1,13 @@
-package com.insider.CaseStudy.API.utilities;
+package com.insider.CaseStudy.UI.utilities;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.ExtentKlovReporter;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.junit.jupiter.api.extension.*;
-import org.springframework.test.context.TestExecutionListener;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -64,6 +60,8 @@ public class ExtentReportManager implements BeforeAllCallback, BeforeEachCallbac
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
         node.log(Status.FAIL, "Test Execution Exception");
         node.log(Status.FAIL, throwable.getMessage());
+        node.log(Status.FAIL, "details",
+                MediaEntityBuilder.createScreenCaptureFromBase64String("base64String").build());
         throw throwable;
 
     }

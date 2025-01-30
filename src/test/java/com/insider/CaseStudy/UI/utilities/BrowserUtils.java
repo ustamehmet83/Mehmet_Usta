@@ -292,7 +292,7 @@ public class BrowserUtils {
         try {
             File screenshotFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String filePath = System.getProperty("tests.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
+            String filePath = System.getProperty("user.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
             FileUtils.copyFile(screenshotFile, new File(filePath));
         } catch (Exception e) {
             e.printStackTrace();

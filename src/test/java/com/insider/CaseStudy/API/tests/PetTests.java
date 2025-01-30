@@ -240,7 +240,7 @@ public class PetTests extends Hooks {
                 when().
                 get(EndPoints.findByStatus).
                 then().assertThat().
-                statusCode(200).
+                statusCode(20000).
                 log().all().extract().jsonPath();
         List<String> status = jsonPath.get("status");
         for (String s : status) {

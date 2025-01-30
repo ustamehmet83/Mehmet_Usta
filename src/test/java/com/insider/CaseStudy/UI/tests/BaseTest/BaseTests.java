@@ -1,14 +1,16 @@
 package com.insider.CaseStudy.UI.tests.BaseTest;
 
 
+import com.insider.CaseStudy.API.utilities.ExtentReportManager;
 import com.insider.CaseStudy.UI.utilities.BrowserUtils;
 import com.insider.CaseStudy.UI.utilities.Driver;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-
+@ExtendWith(ExtentReportManager.class)
 public class BaseTests {
 
     protected static WebDriver driver;
