@@ -50,6 +50,7 @@ class ApplicationTests extends BaseTests {
         BrowserUtils.getAssertThat(careersPage.scrollToElement(careersPage.customerSuccessBtn).isEnabled());
         BrowserUtils.getAssertThat(careersPage.scrollToElement(careersPage.newYorkLocationBtn).isEnabled());
         BrowserUtils.getAssertThat(careersPage.scrollToElement(careersPage.lifeAtInsiderImage).isEnabled());
+        BrowserUtils.getThreadAssert();
     }
 
     @ParameterizedTest
@@ -127,6 +128,7 @@ class ApplicationTests extends BaseTests {
             }
         }
         BrowserUtils.getAssertThat(driver.getCurrentUrl().contains("lever"));
+        BrowserUtils.getThreadAssert();
     }
 
 

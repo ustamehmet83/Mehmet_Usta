@@ -25,7 +25,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 
 public class BrowserUtils {
-
+    public static String filePath;
 
     /**
      * Wait till element is invisible
@@ -292,7 +292,8 @@ public class BrowserUtils {
         try {
             File screenshotFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String filePath = System.getProperty("user.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
+            filePath = System.getProperty("user.dir") + File.separator + "ScreenShots" + File.separator + timestamp+ ".png";
+
             FileUtils.copyFile(screenshotFile, new File(filePath));
         } catch (Exception e) {
             e.printStackTrace();
@@ -368,7 +369,26 @@ public class BrowserUtils {
 
     public static void clearScreenshotsFolder() {
 
-        String screenshotsFolderPath = System.getProperty("tests.dir") + File.separator + "ScreenShots";
+        String screenshotsFolderPath = System.getProperty("user.dir") + File.separator + "ScreenShots";
+
+        File folder = new File(screenshotsFolderPath);
+
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isFile()) {
+                        file.delete();
+                    }
+                }
+            }
+        } else {
+            System.out.println("Screenshots folder does not exist or is not a directory.");
+        }
+    }
+    public static void clearReportsFolder() {
+
+        String screenshotsFolderPath = System.getProperty("user.dir") + File.separator + "reports";
 
         File folder = new File(screenshotsFolderPath);
 

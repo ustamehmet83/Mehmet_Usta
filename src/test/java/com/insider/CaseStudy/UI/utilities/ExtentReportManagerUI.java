@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportManager implements BeforeAllCallback, BeforeEachCallback, AfterEachCallback, AfterAllCallback, TestExecutionExceptionHandler {
+public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallback, AfterEachCallback, AfterAllCallback, TestExecutionExceptionHandler {
 
     public ExtentHtmlReporter extentHtmlReporter;
     public ExtentReports extentReports;
@@ -60,8 +60,8 @@ public class ExtentReportManager implements BeforeAllCallback, BeforeEachCallbac
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
         node.log(Status.FAIL, "Test Execution Exception");
         node.log(Status.FAIL, throwable.getMessage());
-        node.log(Status.FAIL, "details",
-                MediaEntityBuilder.createScreenCaptureFromBase64String("base64String").build());
+        node.log(Status.FAIL,"details",
+                MediaEntityBuilder.createScreenCaptureFromPath(BrowserUtils.filePath).build());
         throw throwable;
 
     }
