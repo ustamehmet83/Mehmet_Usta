@@ -22,19 +22,19 @@ public class ExtentReportManager implements BeforeAllCallback,AfterEachCallback,
 
 	@Override
 	public void beforeAll(ExtensionContext context) {
-		// Get the timestamp for the report
+
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Test-Report-" + timeStamp + ".html";
-		String reportPath = System.getProperty("tests.dir") + "\\reports\\" + repName; // Absolute path
+		String reportPath = System.getProperty("tests.dir") + "\\reports\\" + repName;
 
 		extentReports = new ExtentReports();
 		extentHtmlReporter = new ExtentHtmlReporter (reportPath);
-		extentHtmlReporter.config().setDocumentTitle("RestAssuredAutomationProject"); // Title of report
-		extentHtmlReporter.config().setReportName("Pet Store Users API"); // name of the report
+		extentHtmlReporter.config().setDocumentTitle("InsiderCaseStudy");
+		extentHtmlReporter.config().setReportName("Pet Store Users API");
 		extentHtmlReporter.config().setTheme(Theme.DARK);
 		extentReports.attachReporter(extentHtmlReporter);
 		extentHtmlReporter.config().setDocumentTitle("Extent Report");
-		extentTest=extentReports.createTest("ExtentTest","Test Raporu");
+		extentTest=extentReports.createTest("ExtentTest","Test Report");
 	}
 
 	@Override
