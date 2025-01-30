@@ -219,7 +219,7 @@ public class PetTests extends Hooks {
                 delete(EndPoints.petId).
                 then().assertThat().
                 statusCode(200).
-                body("code", is(20000),
+                body("code", is(200),
                         "message", is(petUpdate.getId().toString())).
                 log().all();
 
@@ -240,7 +240,7 @@ public class PetTests extends Hooks {
                 when().
                 get(EndPoints.findByStatus).
                 then().assertThat().
-                statusCode(20000).
+                statusCode(200).
                 log().all().extract().jsonPath();
         List<String> status = jsonPath.get("status");
         for (String s : status) {
