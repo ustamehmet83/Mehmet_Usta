@@ -219,7 +219,7 @@ public class PetTests extends Hooks {
                 delete(EndPoints.petId).
                 then().assertThat().
                 statusCode(200).
-                body("code", is(200),
+                body("code", is(20000),
                         "message", is(petUpdate.getId().toString())).
                 log().all();
 
