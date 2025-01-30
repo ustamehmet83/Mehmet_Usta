@@ -1,5 +1,6 @@
 package com.insider.CaseStudy.API.user;
 
+import com.insider.CaseStudy.API.endpoints.EndPoints;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Order;
@@ -32,7 +33,7 @@ public class UserFlow extends Hooks {
                     accept("application/json").
                     body(file).
                 when().
-                    post("/user");
+                    post(EndPoints.user);
 
         response.
                 then().
@@ -61,8 +62,9 @@ public class UserFlow extends Hooks {
         id = jsonPathFile.getInt("id");
             given().
                 accept("application/json").
-            when().
-                get("/user/"+username).
+                    pathParam("username",username)
+            .when().
+                get(EndPoints.username).
             then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
@@ -84,9 +86,10 @@ public class UserFlow extends Hooks {
             given().
                 contentType(ContentType.JSON).
                 accept("application/json").
+        pathParam("username",username).
                 body(fileUpdate).
             when().
-                put("/user/"+username).
+                put(EndPoints.username).
             then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
@@ -107,8 +110,9 @@ public class UserFlow extends Hooks {
         email = jsonPathFileUpdate.getString("email");
             given().
                 accept("application/json").
-            when().
-                get("/user/"+username).
+                    pathParam("username",username)
+                    .when().
+                get(EndPoints.username).
             then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
@@ -130,8 +134,9 @@ public class UserFlow extends Hooks {
             given().
                 contentType(ContentType.JSON).
                 accept("application/json").
-            when().
-                delete("/user/"+username).
+                    pathParam("username",username)
+            .when().
+                delete(EndPoints.username).
             then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
@@ -153,8 +158,9 @@ public class UserFlow extends Hooks {
             given().
                 contentType(ContentType.JSON).
                 accept("application/json").
-            when().
-                delete("/user/"+username).
+                    pathParam("username",username)
+            .when().
+                delete(EndPoints.username).
             then().assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
@@ -176,7 +182,7 @@ public class UserFlow extends Hooks {
                         accept("application/json").
                         body(file).
                         when().
-                        post("user/createWithList");
+                        post(EndPoints.createWithList);
 
         response.
                 then().

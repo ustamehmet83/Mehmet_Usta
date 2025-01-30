@@ -23,6 +23,7 @@
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <testng.version>7.1.0</testng.version>
         <testcontainers.version>1.15.1</testcontainers.version>
+        <faker.version>1.0.2</faker.version>
         <selenium.version>4.24.0</selenium.version>
     </properties>
 
@@ -101,6 +102,20 @@
             <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>4.0.9</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>

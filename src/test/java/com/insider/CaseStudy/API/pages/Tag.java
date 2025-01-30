@@ -16,6 +16,9 @@ public class Tag {
         this.id = id;
         this.name = name;
     }
+    public Tag() {
+
+    }
 
     @JsonProperty("id")
     private Integer id;

@@ -33,6 +33,7 @@ public class Pet {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    public Pet(){};
     public Pet(Integer id, Category category, String name, List<String> photoUrls, List<Tag> tags, String status) {
         this.id = id;
         this.category = category;
@@ -40,7 +41,6 @@ public class Pet {
         this.photoUrls = photoUrls;
         this.tags = tags;
         this.status = status;
-        ;
     }
 
     @JsonProperty("id")
