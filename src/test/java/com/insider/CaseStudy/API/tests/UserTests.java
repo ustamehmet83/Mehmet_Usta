@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.is;
 
-public class UserFlow extends Hooks {
+public class UserTests extends Hooks {
 
     File file = new File("src/test/resources/requestFile/createUser.json");
     File fileUpdate=new File("src/test/resources/requestFile/updateUser.json");

@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PetFlow extends Hooks {
+public class PetTests extends Hooks {
 
     private static Tag tag;
     private static Category category;

@@ -11,7 +11,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
-public class StoreFlow extends Hooks {
+public class StoreTests extends Hooks {
 
     /**************************************************************
      * The test expecting to create successfully a tests on the page
