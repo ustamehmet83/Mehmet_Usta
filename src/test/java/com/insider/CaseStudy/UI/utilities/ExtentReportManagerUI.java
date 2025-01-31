@@ -33,7 +33,7 @@ public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallb
         extentReports = new ExtentReports();
         extentHtmlReporter = new ExtentHtmlReporter(reportPath);
         extentHtmlReporter.config().setDocumentTitle("InsiderCaseStudy");
-        extentHtmlReporter.config().setReportName("Pet Store Users API");
+        extentHtmlReporter.config().setReportName("Pet Store Users UI");
         extentHtmlReporter.config().setTheme(Theme.DARK);
 
         extentReports.attachReporter(extentHtmlReporter);
@@ -52,7 +52,6 @@ public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallb
         if (node.getStatus() != Status.FAIL) {
             node.log(Status.PASS, "Test Passed");
         }
-
     }
 
 
