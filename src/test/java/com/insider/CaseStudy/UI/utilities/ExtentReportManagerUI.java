@@ -6,9 +6,12 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import junit.framework.TestResult;
 import org.junit.jupiter.api.extension.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -60,12 +63,18 @@ public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallb
 
     @Override
     public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         node.log(Status.FAIL, "Test Execution Exception");
         node.log(Status.FAIL, throwable.getMessage());
-        node.log(Status.FAIL,"details",
-                MediaEntityBuilder.createScreenCaptureFromPath(BrowserUtils.filePath).build());
+        node.log(Status.FAIL,"ScreenShot "+ timestamp,
+                captureScreenShot(Driver.getDriver()).build());
         throw throwable;
 
+    }
+
+    public static MediaEntityBuilder captureScreenShot(WebDriver driver) throws IOException {
+            String screenshotFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BASE64);
+            return MediaEntityBuilder.createScreenCaptureFromBase64String(screenshotFile);
     }
 
 
