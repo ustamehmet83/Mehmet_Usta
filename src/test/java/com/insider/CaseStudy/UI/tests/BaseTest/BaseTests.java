@@ -28,7 +28,7 @@ public class BaseTests {
     }
 
     @BeforeEach
-    public  void setUp2() {
+    public  void setUpEach() {
         softAssertionsThreadTotal.set(new SoftAssertions());
     }
 

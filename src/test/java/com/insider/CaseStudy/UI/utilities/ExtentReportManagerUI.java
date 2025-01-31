@@ -6,6 +6,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import junit.framework.TestResult;
 import org.junit.jupiter.api.extension.*;
 
 import java.text.SimpleDateFormat;
@@ -48,6 +49,7 @@ public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallb
         if (node.getStatus() != Status.FAIL) {
             node.log(Status.PASS, "Test Passed");
         }
+
     }
 
 
