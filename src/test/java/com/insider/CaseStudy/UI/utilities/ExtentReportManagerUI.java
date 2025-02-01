@@ -54,7 +54,6 @@ public class ExtentReportManagerUI implements BeforeAllCallback, BeforeEachCallb
         }
     }
 
-
     @Override
     public void afterAll(ExtensionContext context) {
         extentReports.flush();
